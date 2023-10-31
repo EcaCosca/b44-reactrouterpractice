@@ -25,7 +25,7 @@ function App() {
 
   // JSX code representing the layout of the application
   return (
-    <>
+    <div className='App' >
       {/* Navigation bar with links to different pages */}
       <nav>
         <ul>
@@ -110,7 +110,7 @@ function App() {
           </li>
         </ul>
       </nav>
-
+      <div className="App">
       {/* Button for navigating back one page */}
       <button onClick={()=>{navigate(-1)}}>Take me back 1 page</button>
       {/* Button for navigating back to the home page */}
@@ -120,7 +120,7 @@ function App() {
       {/* React Router DOM Routes for handling different paths and rendering components */}
       <Routes>
         {/* Default route, displays "Hello, welcome!" when no specific path matches */}
-        <Route path="" element={<>Hello, welcome!</>} />
+        <Route path="" element={<h1>Hello, welcome home!</h1>} />
         
         {/* Route for the Parent component */}
         <Route path="parent" element={<Parent/>}/>
@@ -137,7 +137,8 @@ function App() {
         {/* Route for the Vite component */}
         <Route path="/vite" element={<Vite/>} />
       </Routes>
-    </>
+      </div>
+    </div>
   );
 }
 
