@@ -1,8 +1,12 @@
-import React from 'react'
+// import React from 'react'
 
 const React = () => {
   return (
-    <div>React</div>
+    <div>
+        <h1>
+            React
+        </h1>
+    </div>
   )
 }
 

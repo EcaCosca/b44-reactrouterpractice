@@ -1,8 +1,10 @@
-import React from 'react'
-
 const Vite = () => {
   return (
-    <div>Vite</div>
+    <div>
+        <h1>
+            Vite
+        </h1>
+    </div>
   )
 }
 
