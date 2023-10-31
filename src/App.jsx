@@ -1,26 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { Routes, Route, Link, NavLink, useNavigate } from 'react-router-dom'
+// Import React's useState hook for managing state in functional components
+import { useState } from 'react';
 
-// IMPORT COMPONENTS ANG PAGES
-import Vite from './components/Vite'
-import React from './components/React'
-import Parent from './components/Parent'
-import Profile from './components/Profile'
-import Store from './components/Store'
+// Import images for React and Vite logos
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
 
+// Import external styles for the App component
+import './App.css';
+
+// Import necessary components and pages for routing
+import { Routes, Route, Link, NavLink, useNavigate } from 'react-router-dom';
+
+// Import custom components for routing
+import Vite from './components/Vite';
+import React from './components/React';
+import Parent from './components/Parent';
+import Profile from './components/Profile';
+import Store from './components/Store';
+
+// Main functional component representing the App
 function App() {
-  const navigate = useNavigate()
+  // Initialize the navigate function from react-router-dom for navigating between pages
+  const navigate = useNavigate();
 
+  // JSX code representing the layout of the application
   return (
     <>
+      {/* Navigation bar with links to different pages */}
       <nav>
         <ul>
+          {/* NavLink components for different routes with dynamic styling based on active route */}
           <li>
             <NavLink 
               to="/"
+              // Inline style for NavLink, changes color and background based on active state
               style={({ isActive }) => ({ 
                 color: isActive ? "green" : "red",
                 backgroundColor: isActive ? "#32ffc3" : "white"
@@ -97,19 +110,36 @@ function App() {
           </li>
         </ul>
       </nav>
+
+      {/* Button for navigating back one page */}
       <button onClick={()=>{navigate(-1)}}>Take me back 1 page</button>
+      {/* Button for navigating back to the home page */}
       <button onClick={()=>{navigate('/')}}>Take me home</button>
       <br/>
+
+      {/* React Router DOM Routes for handling different paths and rendering components */}
       <Routes>
+        {/* Default route, displays "Hello, welcome!" when no specific path matches */}
         <Route path="" element={<>Hello, welcome!</>} />
+        
+        {/* Route for the Parent component */}
         <Route path="parent" element={<Parent/>}/>
+
+        {/* Route for the Profile component with dynamic userId parameter */}
         <Route path="/profile/:userId" element={<Profile/>}/>
+
+        {/* Route for the Store component with dynamic productId parameter */}
         <Route path="/store/:productId" element={<Store/>}/>
+
+        {/* Route for the React component */}
         <Route path="/react" element={<React/>} />
+
+        {/* Route for the Vite component */}
         <Route path="/vite" element={<Vite/>} />
       </Routes>
     </>
-  )
+  );
 }
 
-export default App
+// Export the App component as the default export of this module
+export default App;
